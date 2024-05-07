@@ -1,0 +1,21 @@
+import random
+import math
+Lower_value = int(input("Enter the Lower Value: "))
+Higher_value = int(input("Enter the Higher Value: "))
+Number = random.randint(Lower_value,Higher_value)
+print ("\nChances allowed to Try is "+
+    str(round(math.log(Higher_value-Lower_value-1,2))))
+count = 0
+while count<math.log(Higher_value-Lower_value-1,2):
+    count+=1
+    Guess = int(input("\nEnter your Choice: "))
+    if Number==Guess:
+        print("Your Guess is Right, You Guessed the Value in "+ str(count) +" chances")
+        break
+    elif Number>Guess:
+        print("Your Guess is Lower Than the Number, Try Again...")
+    elif Number<Guess:
+        print("Your Guess is Higher than the Number, Try Again...")
+if count>math.log(Higher_value-Lower_value-1,2):
+    print("\n\t...You Have exceeded the no of chances, the Number is %d..."%Number)
+    print("\n\t...Better Luck Next Time...")
